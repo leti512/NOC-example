@@ -9,7 +9,6 @@ import { Server } from './presentation/server'
 
 
 function main(){
-    //Server.start()
-    //console.log( process.env.MAILER_SECRET_KEY );
-    console.log( envs );
+    Server.start()
+    //console.log( envs );
 }
