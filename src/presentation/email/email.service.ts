@@ -16,9 +16,7 @@ interface Attachment {
 }
 
 export class EmailService {
-    constructor(
-        private readonly logRepository: LogRepository,
-    ) {}
+    constructor() {}
 
     private transporter = nodemailer.createTransport({
         service: envs.MAILER_SERVICE,
@@ -45,7 +43,7 @@ export class EmailService {
                 message:'Email sent',
                 origin: 'email.service.ts',
             })
-            this.logRepository.saveLog(log)
+     
 
             return true;
         } catch (error) {
@@ -54,7 +52,7 @@ export class EmailService {
                 message:'Email not sent',
                 origin: 'email.service.ts',
             })
-            this.logRepository.saveLog(log)
+           
             return false;
         }
 

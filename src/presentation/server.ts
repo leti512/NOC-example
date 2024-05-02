@@ -1,5 +1,6 @@
 import { envs } from "../config/plugins/envs.plugin";
 import { CheckService } from "../domain/use-cases/checks/check-service";
+import { SendEmailLogs } from "../domain/use-cases/email/send-logs";
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
 import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository.impl";
 import { CronService } from "./cron/cron-service";
@@ -8,16 +9,19 @@ import { EmailService } from "./email/email.service";
 const fileSystemLogRepository = new LogRepositoryImpl(
     new FileSystemDatasource()
 )
-
+const emailService = new EmailService( );
 export class Server {
     public static start(){
         //mandar email
-        const emailService = new EmailService(
-            fileSystemLogRepository
-        );
 
+        new SendEmailLogs(
+            emailService,
+            fileSystemLogRepository
+        ).execute(
+            ['correo@gmail.com' , 'correo@gmail.com']
+        )
         // emailService.sendEmail({
-        //     to: 'email@gmail.com',
+        //     to: 'correo@gmail.com',
         //     subject: 'Logs de sistema',
         //     htmlBody: `
         //     <h1>Logs de sistema -NOC /h1>
@@ -26,7 +30,7 @@ export class Server {
         // })
 
         //emailService.sendEmailWithFileSystemLogs(
-        //     ['email@gmail.com']
+        //     ['correo@gmail.com' , 'correo3@gmail.com']
         // )
 
 
