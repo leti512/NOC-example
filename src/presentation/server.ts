@@ -12,14 +12,16 @@ const fileSystemLogRepository = new LogRepositoryImpl(
 const emailService = new EmailService( );
 export class Server {
     public static start(){
+
+        console.log("start ...")
         //mandar email
 
-        new SendEmailLogs(
-            emailService,
-            fileSystemLogRepository
-        ).execute(
-            ['correo@gmail.com' , 'correo@gmail.com']
-        )
+        //new SendEmailLogs(
+        //    emailService,
+        //    fileSystemLogRepository
+       // ).execute(
+        //    ['correo@gmail.com' , 'correo@gmail.com']
+       // )
         // emailService.sendEmail({
         //     to: 'correo@gmail.com',
         //     subject: 'Logs de sistema',
