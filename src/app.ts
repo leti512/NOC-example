@@ -17,5 +17,5 @@ async function main(){
 
     
 
-    //Server.start()
+    Server.start()
 }
