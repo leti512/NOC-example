@@ -1,4 +1,5 @@
 import { envs } from "../config/plugins/envs.plugin";
+import { LogSeverityLevel } from "../domain/entities/log.entity";
 import { CheckService } from "../domain/use-cases/checks/check-service";
 import { SendEmailLogs } from "../domain/use-cases/email/send-logs";
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
@@ -13,9 +14,12 @@ const logRepository = new LogRepositoryImpl(
 )
 const emailService = new EmailService( );
 export class Server {
-    public static start(){
+    public static async start(){
 
         console.log("start ...")
+
+        const logs = await logRepository.getLogs(LogSeverityLevel.low);
+        console.log(logs)
         //mandar email
 
         //new SendEmailLogs(
@@ -38,18 +42,18 @@ export class Server {
         // )
 
 
-        console.log(envs)
-        CronService.createJob(
-            '*/9 * * * * *', 
-            ( ) => {
-                const url = 'https://www.google.com/'
-                new CheckService(
-                    logRepository,
-                    () => console.log(`${url} is ok!`),
-                    (error)=> console.log( error ),
-                ).execute(url)
-            }, 
-        );
+        // console.log(envs)
+        // CronService.createJob(
+        //     '*/9 * * * * *', 
+        //     ( ) => {
+        //         const url = 'https://www.google.com/'
+        //         new CheckService(
+        //             logRepository,
+        //             () => console.log(`${url} is ok!`),
+        //             (error)=> console.log( error ),
+        //         ).execute(url)
+        //     }, 
+        // );
     }
    
 }
