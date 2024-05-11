@@ -17,7 +17,7 @@ async function main(){
     })
 
     
-    const prisma = new PrismaClient();
+    // const prisma = new PrismaClient();
     // const newLog =  await prisma.logModel.create({
     //     data:{
     //         level: 'LOW',
@@ -28,11 +28,11 @@ async function main(){
     
     //console.log({newLog})
 
-    const logs = await prisma.logModel.findMany({
-        where: {
-            level: 'LOW'
-        }
-    });
-    console.log(logs);
-    //Server.start()
+    // const logs = await prisma.logModel.findMany({
+    //     where: {
+    //         level: 'LOW'
+    //     }
+    // });
+    // console.log(logs);
+    Server.start()
 }
