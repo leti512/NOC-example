@@ -196,7 +196,7 @@ const config: Config = {
     "/node_modules/",
     "postgres-test",
     "postgres",
-    "mongo",
+    "/mongo/",
     "mongo-test",
    ],
 
