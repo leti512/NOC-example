@@ -54,19 +54,18 @@ export class Server {
         //     ['correo@gmail.com' , 'correo3@gmail.com']
         // )
 
-
-        console.log(envs)
-        CronService.createJob(
-            '*/9 * * * * *', 
-            ( ) => {
-                const url = 'https://www.google.com/'
-                new CheckServiceMultiple(
-                    [fsLogRepository, mongoLogRepository, postgresLogRepository],
-                    () => console.log(`${url} is ok!`),
-                    (error)=> console.log( error ),
-                ).execute(url)
-            }, 
-        );
+        // console.log(envs)
+        // CronService.createJob(
+        //     '*/9 * * * * *', 
+        //     ( ) => {
+        //         const url = 'https://www.google.com/'
+        //         new CheckServiceMultiple(
+        //             [fsLogRepository, mongoLogRepository, postgresLogRepository],
+        //             () => console.log(`${url} is ok!`),
+        //             (error)=> console.log( error ),
+        //         ).execute(url)
+        //     }, 
+        // );
     }
    
 }
