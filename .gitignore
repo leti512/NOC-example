@@ -5,7 +5,7 @@ logs/
 .env
 .env.test
 
-mongo/
+/mongo
 postgres/
 mongo-test/
 postgres-test/

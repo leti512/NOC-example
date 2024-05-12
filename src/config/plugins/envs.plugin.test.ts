@@ -7,14 +7,14 @@ describe('envs.plugin.ts', () => {
         expect(envs).toEqual(
             {
                 PORT: 3000,
-                MAILER_SECRET_KEY: 'mrabbvtpcjtdfhsq',
-                MAILER_EMAIL: 'leticiadiaz512@gmail.com',
+                MAILER_SECRET_KEY: 'aaaaaa',
+                MAILER_EMAIL: 'correo@gmail.com',
                 PROD: true,
                 MAILER_SERVICE: 'gmail',
                 MONGO_URL: 'mongodb://letizia:123456789@localhost:27012/',
                 MONGO_DB_NAME: 'NOC-TEST',
                 MONGO_USER: 'letizia',
-                MONGO_PASS: '123456'
+                MONGO_PASS: '123456789'
               }
         );
     });
