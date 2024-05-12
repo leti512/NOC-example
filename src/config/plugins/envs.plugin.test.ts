@@ -9,7 +9,7 @@ describe('envs.plugin.ts', () => {
                 PORT: 3000,
                 MAILER_SECRET_KEY: 'aaaaaa',
                 MAILER_EMAIL: 'correo@gmail.com',
-                PROD: true,
+                PROD: false,
                 MAILER_SERVICE: 'gmail',
                 MONGO_URL: 'mongodb://letizia:123456789@localhost:27012/',
                 MONGO_DB_NAME: 'NOC-TEST',
